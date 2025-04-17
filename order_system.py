@@ -11,10 +11,11 @@ def place_order(menu):
     # TODO: Create a continuous while loop so customers can order multiple items
     while True:
         i = 1
-        print_menu_heading()  # ✅ was missing ()
+        print_menu_heading()
 
         # TODO: Ask the customer what they want to order
         print("What would you like to order?")
+        
 
         # Print the menu header
         print_menu_heading()
@@ -41,7 +42,8 @@ def place_order(menu):
         order = update_order(order, menu_selection, menu_items)
 
         # TODO: Ask the customer if they would like to order anything else
-        keep_ordering = input("Would you like to keep ordering? (N)o to quit: ")
+        print("Would you like to keep ordering? (N)o to quit: ")
+        keep_ordering = input()
 
         # TODO: Write a conditional statement that checks the user's input
         if keep_ordering.lower() == "n":
@@ -68,7 +70,7 @@ def update_order(order, menu_selection, menu_items):
     # TODO: Check if the customer typed a number
     if not menu_selection.isdigit():
         # TODO: Tell the customer they didn't select a valid menu option
-        print("Invalid menu selection. Please try again.")
+        print(f"{menu_selection} was not a menu option.")
         return order
 
     # TODO: Convert the menu selection to an integer
@@ -85,9 +87,9 @@ def update_order(order, menu_selection, menu_items):
     item_price = item["Price"]
 
     # TODO: Ask the customer for the quantity of the menu item
-    quantity_input = input(
-        f"What quantity of {item_name} would you like? (This will default to 1 if number is not entered): "
-    )
+    print(f"What quantity of {item_name} would you like?")
+    print("(This will default to 1 if number is not entered)")
+    quantity_input = input()
 
     # TODO: Check if the quantity is a number, default to 1 if not
     if quantity_input.isdigit():
